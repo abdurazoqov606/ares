@@ -71,7 +71,10 @@ export default function App() {
         canvas.width = viewport.width;
         
         if (context) {
-          await page.render({ canvasContext: context, viewport }).promise;
+          await page.render({ 
+            canvasContext: context, 
+            viewport,
+          } as any).promise;
           const imageData = canvas.toDataURL('image/jpeg', 0.8);
           
           if (text.trim()) {
